@@ -586,16 +586,7 @@ for ntimestep in range(1,stepmax+1):
     
     # Interpolating parameters from markers to nodes       
     #call jitted first marker cycle one
-    """
-    @jit не поддерживает списки, пришлось преобразовать MRHO и MFLOW в массивы numpy
-    внутри @jit np.zeros параметры в виде tuple (....)
-    
-    непонятное завихрение в работе reload_solutions0 было
-    вызвано тем, что переменная global S НЕ передавалась в виде параметра,
-    а получалась снаружи.
-    
-    
-    """
+   
     marknum,MX,MY,xnum,ynum,gridx,gridy,xstp,ystp,MRHO,MFLOW,rho,wtnodes,etas,wtetas,etan,wtetan=Interpolate_markers_nodes(marknum,MX,MY,xnum,ynum,gridx,gridy,xstp,ystp,MRHO,MFLOW,\
                                   rho,wtnodes,etas,wtetas,etan,wtetan)
     
